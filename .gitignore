@@ -1,0 +1,9 @@
+#Enviroment Variables
+.env/
+.env
+
+#Virtual Enviroment
+.venv/
+
+#pycache
+__pycache__/
