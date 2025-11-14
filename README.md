@@ -1,1 +1,1 @@
-Job Hunting App with AI
+Job Hunting App
