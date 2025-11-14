@@ -22,8 +22,33 @@ def fetchJobs(jobTitle):
 
     return data
 
-def parseData():
-    ...
+#clean the data 
+def parseData(rawJobs):
+    cleanJobs = []
+    
+    for job in rawJobs.get('results', []):
+        #create dictionary
+        parsedJobs = {
+            'title': job.get('heading', ''),
+            'company': job.get('company_name', ''),
+            'location': job.get('municipality_name', ''),
 
+            #check if descr over 500 chars = truncate & add ...; else do not truncate descr
+
+            'description': job.get('descr', '')[:500] + '...' if len(job.get('descr', '')) > 500 else job.get('descr', ''),
+            'date_posted': job.get('date_posted', ''),
+
+            #slug apparantly is needed for url; slug - url title
+            'slug': job.get('slug', ''),
+
+            #create url only if slug exist; else empty 
+            'url': f"https://duunitori.fi/tyopaikat/tyo/{job.get('slug', '')}" if job.get('slug') else ''
+        }
+        cleanJobs.append(parsedJobs)
+    return cleanJobs
+
+#for test purposes; if run directly = execute; else not execute
 if __name__ == "__main__":
-    fetchJobs()
+    data = fetchJobs("embedded engineer")
+    print(f"Found {len(data.get('results', []))} jobs")
+    print(json.dumps(parseData(data), indent=2, ensure_ascii=False))
