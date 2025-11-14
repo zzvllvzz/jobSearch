@@ -1,10 +1,11 @@
 import requests
 import json
 
-def fetchJobs():
+#fetch job via open API
+def fetchJobs(jobTitle):
     url = "https://duunitori.fi/api/v1/jobentries"
     params = {
-        "search": "engineer",
+        "search": jobTitle,
         "search_also_descr": 1,
         "format": "json"
     }
@@ -20,6 +21,9 @@ def fetchJobs():
     print(json.dumps(data, indent=4, ensure_ascii=False))
 
     return data
+
+def parseData():
+    ...
 
 if __name__ == "__main__":
     fetchJobs()
