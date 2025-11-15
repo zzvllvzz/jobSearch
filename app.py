@@ -26,7 +26,7 @@ def index():
     if request.method == 'POST':
         #get html form data from user input
         background = request.form.get('background', '')
-        jobTitle = request.form.get('jobTitle', '')
+        jobTitle = request.form.get('jobTitle', '').strip()
 
         #fetch and then clean data
         rawData = fetchJobs(jobTitle)

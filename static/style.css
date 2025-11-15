@@ -1,0 +1,90 @@
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin: 0;
+    padding: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+h1 { 
+    text-align: center;
+    color: white;
+    margin: 0;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.navbar { 
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.job-card { 
+    border: none;
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.job-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+.rank-1 { border-left: 6px solid #ffd700; }
+.rank-2 { border-left: 6px solid #c0c0c0; }
+.rank-3 { border-left: 6px solid #cd7f32; }
+.match-score { 
+    font-size: 1.1em; 
+    font-weight: bold;
+    color: #28a745;
+    display: inline-block;
+    padding: 4px 12px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    margin: 5px 0;
+}
+.job-title { 
+    font-size: 1.4em; 
+    margin-bottom: 12px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+.reason { 
+    color: #555; 
+    margin: 15px 0;
+    line-height: 1.5;
+}
+a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+/* Improved Search Again link */
+body > a {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.9);
+    color: #667eea;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    border: 2px solid transparent;
+}
+body > a:hover {
+    background: white;
+    color: #764ba2;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    border-color: rgba(118, 75, 162, 0.3);
+}
