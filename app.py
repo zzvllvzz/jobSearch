@@ -1,14 +1,9 @@
 from flask import Flask, render_template, request, jsonify
 from src.scrape import fetchJobs, parseData
-from dotenv import load_dotenv
+from src.gemini import analyzeJobs
 import json
-import os
-
-# load env variables
-load_dotenv()
 
 app = Flask(__name__)
-app.config['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
 
 #route for not found 404
 @app.errorhandler(404)
@@ -29,13 +24,15 @@ def index():
         cleanData = parseData(rawData)
 
         #save parsed json data to file
-        with open('jobsList.json', 'w', encoding='utf-8') as f:
-            json.dump(cleanData, f, indent=2, ensure_ascii=False)
+        #with open('jobsList.json', 'w', encoding='utf-8') as f:
+        #    json.dump(cleanData, f, indent=2, ensure_ascii=False)
 
-        return f"Found {len(cleanData)} jobs and saved to jobsList.json"
+        geminiAnalysis = analyzeJobs(cleanData, background)
+
+        return f"AI Analysis Results:\n\n{geminiAnalysis}"
 
     return render_template("index.html")
 
-@app.route("/results")
-def scrape():
-    return render_template("results.html")
+# @app.route("/results")
+# def scrape():
+#     return render_template("results.html")
