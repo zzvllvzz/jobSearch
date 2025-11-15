@@ -57,8 +57,10 @@ def results():
             print(jobsData[0].keys())
         else:
             jobsData = None
+            return render_template("noJobs.html")
     except:
         jobsData = None
+        return render_template("noJobs.html")
     
     #pass vars to results.html
     return render_template("results.html", 
