@@ -51,10 +51,14 @@ def results():
     #try/except 
     try:
         # parse json from ai response
+        # looks for a pattern in a string; regular expression pattern that matches anything between [ and ]
+        #makes the . match newlines too
+        #will be a match object if JSON is found
         jsonMatch = re.search(r'\[.*\]', analysis, re.DOTALL)
         if jsonMatch:
+            #gets the actual matched text; converts json string to python dict
             jobsData = json.loads(jsonMatch.group())
-            print(jobsData[0].keys())
+            #print(jobsData[0].keys()) //debug
         else:
             jobsData = None
             return render_template("noJobs.html")
