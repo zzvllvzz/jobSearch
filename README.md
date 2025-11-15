@@ -1,7 +1,6 @@
 # JobAI: Job Hunting App
 
-#### Enter your work experience, education level as well as the job you're looking for. This app will scrape API of duunitori.fi, give it to
-#### Gemini AI for analysis and rank 20 most recent job listenings from the most matching to the least
+#### Enter your work experience, education level as well as the job you're looking for. This app will scrape API of duunitori.fi, give it to Gemini AI for analysis and rank 20 most recent job listenings from the most matching to the least
 
 #### Enter one job title to look for per search
 
