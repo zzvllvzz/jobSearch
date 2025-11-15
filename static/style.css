@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
 body { 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
     margin: 0;
@@ -67,7 +71,6 @@ a:hover {
     color: #2980b9;
     text-decoration: underline;
 }
-/* Improved Search Again link */
 body > a {
     display: inline-block;
     background: rgba(255, 255, 255, 0.9);
@@ -87,4 +90,53 @@ body > a:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
     border-color: rgba(118, 75, 162, 0.3);
+}
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+.form-container h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.form-container p {
+    color: #555;
+    margin-bottom: 8px;
+}
+.form-container textarea,
+.form-container input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+}
+.form-container textarea:focus,
+.form-container input[type="text"]:focus {
+    outline: none;
+    border-color: #667eea;
+}
+.form-container input[type="submit"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.form-container input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
