@@ -24,9 +24,7 @@
         </div>
         {% endfor %}
     {% else %}
-        <div class="analysis">
-            {{ analysis }}
-        </div>
+        {% include 'somethingWrong.html' %}
     {% endif %}
     
     <br>
