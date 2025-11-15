@@ -1,8 +1,10 @@
 import requests
 import json
 
+#maybe could be done using @dataclass insted of dict?
+
 #fetch job via open API
-def fetchJobs(jobTitle):
+def fetchJobs(jobTitle: str) -> dict[str, str]:
     url = "https://duunitori.fi/api/v1/jobentries"
     params = {
         "search": jobTitle,
@@ -18,12 +20,12 @@ def fetchJobs(jobTitle):
     data = response.json()
 
     # print json
-    print(json.dumps(data, indent=4, ensure_ascii=False))
+    #print(json.dumps(data, indent=4, ensure_ascii=False))
 
     return data
 
 #clean the data 
-def parseData(rawJobs):
+def parseData(rawJobs: dict[str, str]) -> dict[str, str]:
     cleanJobs = []
     
     for job in rawJobs.get('results', []):

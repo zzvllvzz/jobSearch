@@ -2,7 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Job Match Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .job-card { 
+            border: 1px solid #ddd; 
+            padding: 20px; 
+            margin: 15px 0; 
+            border-radius: 8px;
+            background: white;
+        }
+        .rank-1 { border-left: 6px solid #ffc107; }
+        .rank-2 { border-left: 6px solid #17a2b8; }
+        .rank-3 { border-left: 6px solid #28a745; }
+        .match-score { 
+            font-size: 1.2em; 
+            font-weight: bold;
+            color: #28a745;
+        }
+        .job-title { font-size: 1.3em; margin-bottom: 10px; }
+        .reason { color: #555; margin: 10px 0; }
+    </style>
 </head>
 <body>
-    <h1>Search for job with AI!</h1>
+    <h1>AI Job Match Results for "{{ jobTitle }}"</h1>
+    <a href="/">Search Again</a>
+    
+    {% if jobsData %}
+        {% for job in jobsData %}
+        <div class="job-card rank-{{ job.rank }}">
+            <div class="job-title">
+                #{{ job.rank }}: {{ job.job_title }}
+            </div>
+            <div class="match-score">Match Score: {{ job.match_score }}/10</div>
+            <div class="reason">{{ job.reason }}</div>
+            <a href="{{ job.url }}" target="_blank">View Job</a>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="analysis">
+            {{ analysis }}
+        </div>
+    {% endif %}
+    
+    <br>
+    <a href="/">Search Again</a>
 </body>
+</html>
