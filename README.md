@@ -13,7 +13,7 @@ git clone https://github.com/zzvllvzz/jobSearch.git
 py -3 -m venv .venv
 .venv\Scripts\activate
 ```
-### 3. Install required dependecies
+### 3. Install required dependecies:
 ```
 pip install -r requirements.txt
 ```
@@ -21,4 +21,4 @@ pip install -r requirements.txt
 ```
 flask run
 ```
-### 5. Go to http://127.0.0.1:5000/
+### 5. Go to: http://127.0.0.1:5000/
