@@ -11,7 +11,7 @@
         <h1>JobAI: Job Search Tool</h1>
     </div>
     
-    <form method="post" action="/">
+    <form method="post" action="/" id="jobForm">
         <div class="form-container">
             <h3>Your Background</h3>
             <p>Education and Work Experience:</p>
@@ -22,8 +22,24 @@
             <input type="text" name="jobTitle" placeholder="e.g., embedded engineer" size="50">
             
             <br><br>
-            <input type="submit" value="Find Matching Jobs">
+            <input type="submit" value="Find Matching Jobs" id="submitBtn">
         </div>
     </form>
+
+    <!-- Loader Overlay -->
+    <div id="loaderOverlay" class="loader-overlay">
+        <div class="loader-content">
+            <span class="loader"></span>
+            <p>Analyzing jobs with AI... This may take a moment</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('jobForm').addEventListener('submit', function() {
+            // Show loader when form is submitted
+            document.getElementById('loaderOverlay').style.display = 'flex';
+            document.getElementById('submitBtn').disabled = true;
+        });
+    </script>
 </body>
 </html>
