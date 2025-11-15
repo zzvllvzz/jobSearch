@@ -19,9 +19,6 @@ def fetchJobs(jobTitle: str) -> dict[str, str]:
 
     data = response.json()
 
-    # print json
-    #print(json.dumps(data, indent=4, ensure_ascii=False))
-
     return data
 
 #clean the data 
@@ -48,9 +45,3 @@ def parseData(rawJobs: dict[str, str]) -> dict[str, str]:
         }
         cleanJobs.append(parsedJobs)
     return cleanJobs
-
-#for test purposes; if run directly = execute; else not execute
-if __name__ == "__main__":
-    data = fetchJobs("embedded engineer")
-    print(f"Found {len(data.get('results', []))} jobs")
-    print(json.dumps(parseData(data), indent=2, ensure_ascii=False))

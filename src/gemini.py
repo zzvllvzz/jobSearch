@@ -38,12 +38,3 @@ def analyzeJobs(jobsData: dict[str, str], userBackground: str) -> str:
     )
     
     return response.text
-
-#for test purposes; if run directly = execute; else not execute
-if __name__ == "__main__":
-    response = client.models.generate_content(
-        model="gemini-2.5-flash", 
-        contents="Can I upload json files into you for you to analyze them with API ? Can you make jsin files and send to me?"
-    )
-    print(type(response.text))
-    print(response.text)
